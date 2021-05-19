@@ -1,0 +1,2 @@
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Builds\VisualStudio2019\x64\Debug\VST3\DiodeAmplifier.vst3
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Builds\VisualStudio2019\x64\Debug\VST3\DiodeAmplifier.pdb
