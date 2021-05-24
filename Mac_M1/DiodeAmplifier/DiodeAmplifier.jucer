@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="vQHHVN" name="DiodeAmplifier" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
-              companyName="Viator DSP" bundleIdentifier="com.ViatorDSP.DiodeAmplifier"
-              pluginName="Diode Amplifier" pluginManufacturer="Viator DSP">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Viator DSP"
+              bundleIdentifier="com.ViatorDSP.DiodeAmplifier" pluginName="Diode Amplifier"
+              pluginManufacturer="Viator DSP">
   <MAINGROUP id="FRMMBe" name="DiodeAmplifier">
     <GROUP id="{5842A5EB-625C-143E-31B9-0DC192374202}" name="Source">
       <FILE id="EXK2Kj" name="metalOne.wav" compile="0" resource="1" file="Source/metalOne.wav"/>
