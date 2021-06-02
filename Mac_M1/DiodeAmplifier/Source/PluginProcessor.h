@@ -28,10 +28,16 @@
 #define outputGainSliderId "output"
 #define outputGainSliderName "Output"
 
+#define brightId "bright"
+#define brightName "Bright"
+
+#define cabId "cab"
+#define cabName "Cab"
+
 //==============================================================================
 /**
 */
-class DiodeAmplifierAudioProcessor  : public juce::AudioProcessor
+class DiodeAmplifierAudioProcessor  : public juce::AudioProcessor, public juce::AudioProcessorValueTreeState::Listener
 {
 public:
     //==============================================================================
@@ -82,6 +88,8 @@ public:
 private:
     const float piDivisor = 2.0 / 3.14;
     double lastSampleRate = 44100.0;
+    float driveScaled;
+    bool convolutionToggle;
     
     /* non user controlled filters. Used to shape the tone of the sim*/
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> highPassFilter;
@@ -98,6 +106,9 @@ private:
     juce::dsp::Gain<float> inputGainProcessor;
     juce::dsp::Convolution convolutionProcessor;
     juce::dsp::Gain<float> outputGainProcessor;
+    
+    // Parameter listener function
+    void parameterChanged (const juce::String& parameterID, float newValue) override;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DiodeAmplifierAudioProcessor)
