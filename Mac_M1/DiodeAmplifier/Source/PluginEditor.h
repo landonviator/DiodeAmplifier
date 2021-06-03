@@ -64,6 +64,10 @@ private:
     juce::DropShadow shadowProperties;
     juce::DropShadowEffect dialShadow;
     
+    // Menu box
+    juce::ComboBox mSampleMenu;
+    std::unique_ptr <juce::AudioProcessorValueTreeState::ComboBoxAttachment> mSampleMenuAttach;
+    
     DiodeAmplifierAudioProcessor& audioProcessor;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DiodeAmplifierAudioProcessorEditor)

@@ -34,6 +34,9 @@
 #define cabId "cab"
 #define cabName "Cab"
 
+#define menuId "menu"
+#define menuName "Menu"
+
 //==============================================================================
 /**
 */
@@ -87,9 +90,13 @@ public:
     
 private:
     const float piDivisor = 2.0 / 3.14;
-    double lastSampleRate = 44100.0;
+    double lastSampleRate;
+    double projectSampleRate {44100.0};
     float driveScaled;
-    bool convolutionToggle;
+    bool convolutionToggle, oversamplingToggle;
+    
+    
+    void setAllSampleRates(float value);
     
     /* non user controlled filters. Used to shape the tone of the sim*/
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> highPassFilter;
@@ -107,6 +114,8 @@ private:
     juce::dsp::Convolution convolutionProcessor;
     juce::dsp::Gain<float> outputGainProcessor;
     
+    juce::dsp::Oversampling<float> oversamplingProcessor;
+
     // Parameter listener function
     void parameterChanged (const juce::String& parameterID, float newValue) override;
     

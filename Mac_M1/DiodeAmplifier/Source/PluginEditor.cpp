@@ -102,6 +102,12 @@ DiodeAmplifierAudioProcessorEditor::DiodeAmplifierAudioProcessorEditor (DiodeAmp
 
 DiodeAmplifierAudioProcessorEditor::~DiodeAmplifierAudioProcessorEditor()
 {
+    inputSlider.setLookAndFeel(nullptr);
+    driveSlider.setLookAndFeel(nullptr);
+    lowSlider.setLookAndFeel(nullptr);
+    midSlider.setLookAndFeel(nullptr);
+    highSlider.setLookAndFeel(nullptr);
+    outputSlider.setLookAndFeel(nullptr);
 }
 
 //==============================================================================

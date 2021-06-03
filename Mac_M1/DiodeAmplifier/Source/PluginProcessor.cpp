@@ -20,12 +20,8 @@ DiodeAmplifierAudioProcessor::DiodeAmplifierAudioProcessor()
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), false)
                      #endif
                        ),
-treeState (*this, nullptr, "PARAMETER", createParameterLayout()),
-highPassFilter(juce::dsp::IIR::Coefficients<float>::makeHighPass(44100.0, 200.0)),
-preClipFilter(juce::dsp::IIR::Coefficients<float>::makePeakFilter(44100.0, 1420.0, 0.5, 6.0)),
-lowFilter(juce::dsp::IIR::Coefficients<float>::makeLowShelf(44100.0, 200.0, 1.3, 1.0)),
-midFilter(juce::dsp::IIR::Coefficients<float>::makePeakFilter(44100.0, 815.0, 0.3, 1.0)),
-highFilter(juce::dsp::IIR::Coefficients<float>::makePeakFilter(44100.0, 6000.0, 0.2, 6.0))
+treeState (*this, nullptr, "PARAMETER", createParameterLayout())
+
 #endif
 {
     treeState.addParameterListener (inputGainSliderId, this);
@@ -36,6 +32,7 @@ highFilter(juce::dsp::IIR::Coefficients<float>::makePeakFilter(44100.0, 6000.0, 
     treeState.addParameterListener (outputGainSliderId, this);
     treeState.addParameterListener (brightId, this);
     treeState.addParameterListener (cabId, this);
+    treeState.addParameterListener (menuId, this);
 }
 
 DiodeAmplifierAudioProcessor::~DiodeAmplifierAudioProcessor()
@@ -48,6 +45,7 @@ DiodeAmplifierAudioProcessor::~DiodeAmplifierAudioProcessor()
     treeState.removeParameterListener (outputGainSliderId, this);
     treeState.removeParameterListener (brightId, this);
     treeState.removeParameterListener (cabId, this);
+    treeState.removeParameterListener (menuId, this);
 }
 
 juce::AudioProcessorValueTreeState::ParameterLayout DiodeAmplifierAudioProcessor::createParameterLayout()
@@ -63,6 +61,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout DiodeAmplifierAudioProcessor
     auto outputGainParam = std::make_unique<juce::AudioParameterFloat>(outputGainSliderId, outputGainSliderName, -24.0f, 24.0f, 0.0f);
     auto brightParam = std::make_unique<juce::AudioParameterBool>(brightId, brightName, false);
     auto cabParam = std::make_unique<juce::AudioParameterBool>(cabId, cabName, true);
+    auto pMenu = std::make_unique<juce::AudioParameterInt>(menuId, menuName, 0, 1, 0);
 
     params.push_back(std::move(inputGainParam));
     params.push_back(std::move(driveParam));
@@ -72,6 +71,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout DiodeAmplifierAudioProcessor
     params.push_back(std::move(outputGainParam));
     params.push_back(std::move(brightParam));
     params.push_back(std::move(cabParam));
+    params.push_back(std::move(pMenu));
 
     return { params.begin(), params.end() };
 }
@@ -113,9 +113,13 @@ void DiodeAmplifierAudioProcessor::parameterChanged(const juce::String &paramete
             *highNotchFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, 4000.0f, 1.0f, pow(10.0f, -12.0f / 20.0f) * (newValue + 1));
 
         }
-    else
+    else if (parameterID == cabId)
         {
             convolutionToggle = newValue;
+        }
+    else if (parameterID == menuId)
+        {
+            oversamplingToggle = newValue;
         }
 }
 
@@ -184,33 +188,41 @@ void DiodeAmplifierAudioProcessor::changeProgramName (int index, const juce::Str
 //==============================================================================
 void DiodeAmplifierAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
+    // Initialize spec for dsp modules
     juce::dsp::ProcessSpec spec;
     spec.maximumBlockSize = samplesPerBlock;
-    spec.sampleRate = sampleRate;
+    spec.sampleRate = sampleRate * oversamplingProcessor.getOversamplingFactor();
     spec.numChannels = getTotalNumOutputChannels();
     
-    lastSampleRate = sampleRate;
+    // Set the sample rate and use it for dsp modules
+    // We need both samplerates to switch between oversampling states
+    lastSampleRate = spec.sampleRate;
+    projectSampleRate = sampleRate;
     
     highPassFilter.prepare(spec);
     highPassFilter.reset();
-    *highPassFilter.state = *juce::dsp::IIR::Coefficients<float>::makeHighPass(sampleRate, 200);
+    *highPassFilter.state = *juce::dsp::IIR::Coefficients<float>::makeHighPass(projectSampleRate, 200);
 
     preClipFilter.prepare(spec);
     preClipFilter.reset();
-    *preClipFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(sampleRate, 1420, 0.5, 6.0);
+    *preClipFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(projectSampleRate, 1420, 0.5, 6.0);
     
     lowFilter.prepare(spec);
     lowFilter.reset();
-    *lowFilter.state = *juce::dsp::IIR::Coefficients<float>::makeLowShelf(lastSampleRate, 200, 1.3, pow(10, *treeState.getRawParameterValue(lowSliderId) * 0.05));
+    *lowFilter.state = *juce::dsp::IIR::Coefficients<float>::makeLowShelf(projectSampleRate, 200, 1.3, pow(10, *treeState.getRawParameterValue(lowSliderId) * 0.05));
 
     midFilter.prepare(spec);
     midFilter.reset();
-    *midFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, 815, 0.3, pow(10, *treeState.getRawParameterValue(midSliderId) * 0.05));
+    *midFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(projectSampleRate, 815, 0.3, pow(10, *treeState.getRawParameterValue(midSliderId) * 0.05));
 
     highFilter.prepare(spec);
     highFilter.reset();
-    *highFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, 6000, 0.2, pow(10, *treeState.getRawParameterValue(highSliderId) * 0.05));
+    *highFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(projectSampleRate, 6000, 0.2, pow(10, *treeState.getRawParameterValue(highSliderId) * 0.05));
 
+    highNotchFilter.prepare(spec);
+    highNotchFilter.reset();
+    *highNotchFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(projectSampleRate, 4000.0f, 1.0f, pow(10.0f, -12.0f / 20.0f) * (*treeState.getRawParameterValue(brightId) + 1));
+    
     
     inputGainProcessor.prepare(spec);
     inputGainProcessor.reset();
@@ -221,21 +233,15 @@ void DiodeAmplifierAudioProcessor::prepareToPlay (double sampleRate, int samples
     outputGainProcessor.setGainDecibels(*treeState.getRawParameterValue(outputGainSliderId));
 
     convolutionProcessor.prepare(spec);
-    convolutionProcessor.reset();
-    
+        
     convolutionProcessor.loadImpulseResponse
-        (BinaryData::metalOne_wav,
-         BinaryData::metalOne_wavSize,
-         juce::dsp::Convolution::Stereo::yes,
-         juce::dsp::Convolution::Trim::yes,
-         0,
-         juce::dsp::Convolution::Normalise::yes);
+    (BinaryData::metalOne_wav,
+     BinaryData::metalOne_wavSize,
+     juce::dsp::Convolution::Stereo::yes,
+     juce::dsp::Convolution::Trim::yes, 0,
+     juce::dsp::Convolution::Normalise::yes);
     
     convolutionToggle = *treeState.getRawParameterValue(cabId);
-    
-    highNotchFilter.prepare(spec);
-    highNotchFilter.reset();
-    *highNotchFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(sampleRate, 4000.0f, 1.0f, pow(10.0f, -12.0f / 20.0f) * (*treeState.getRawParameterValue(brightId) + 1));
     
     driveScaled = pow(10.0f, *treeState.getRawParameterValue(driveSliderId) * 0.25f);
 }
@@ -282,39 +288,58 @@ void DiodeAmplifierAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
         buffer.clear (i, 0, buffer.getNumSamples());
     
     juce::dsp::AudioBlock<float> audioBlock {buffer};
-    
+
     inputGainProcessor.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 
     highPassFilter.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 
     preClipFilter.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
-    
-    for (int channel = 0; channel < totalNumInputChannels; ++channel) {
-            auto* inputData = buffer.getReadPointer(channel);
-            auto* outputData = buffer.getWritePointer(channel);
+        
+        for (int channel = 0; channel < totalNumInputChannels; ++channel) {
+                auto* inputData = buffer.getReadPointer(channel);
+                auto* outputData = buffer.getWritePointer(channel);
 
-            for (int sample = 0; sample < buffer.getNumSamples(); ++sample) {
+                for (int sample = 0; sample < buffer.getNumSamples(); ++sample) {
 
-                float diodeClippingAlgorithm = exp((0.1 * inputData[sample]) / (0.0253 * 1.68)) - 1;
-                outputData[sample] = piDivisor * atan(diodeClippingAlgorithm * driveScaled);
+                    float diodeClippingAlgorithm = exp((0.1 * inputData[sample]) / (0.0253 * 1.68)) - 1;
+                    
+                    outputData[sample] = piDivisor * atan(diodeClippingAlgorithm * (driveScaled * 16));
+                }
             }
-        }
-    
-    if (convolutionToggle)
-    {
-        convolutionProcessor.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
-
-    }
 
     lowFilter.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 
     midFilter.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 
     highFilter.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
-    
-    highNotchFilter.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 
+    highNotchFilter.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
+    
+    if (convolutionToggle)
+        
+        {
+            convolutionProcessor.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
+            outputGainProcessor.setGainDecibels(*treeState.getRawParameterValue(outputGainSliderId));
+        }
+    
+    else
+        
+        {
+            outputGainProcessor.setGainDecibels(*treeState.getRawParameterValue(outputGainSliderId) - 18.0);
+        }
+    
     outputGainProcessor.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
+}
+
+void DiodeAmplifierAudioProcessor::setAllSampleRates(float value)
+{
+    *highPassFilter.state = *juce::dsp::IIR::Coefficients<float>::makeHighPass(value, 200);
+    *preClipFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(value, 1420, 0.5, 6.0);
+    *lowFilter.state = *juce::dsp::IIR::Coefficients<float>::makeLowShelf(value, 200, 1.3, pow(10, *treeState.getRawParameterValue(lowSliderId) * 0.05));
+    *midFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(value, 815, 0.3, pow(10, *treeState.getRawParameterValue(midSliderId) * 0.05));
+    *highFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(value, 6000, 0.2, pow(10, *treeState.getRawParameterValue(highSliderId) * 0.05));
+    *highNotchFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(value, 4000.0f, 1.0f, pow(10.0f, -12.0f / 20.0f) * (*treeState.getRawParameterValue(brightId) + 1));
+
 }
 
 void DiodeAmplifierAudioProcessor::updateHighPassFilter(const float &freq){
