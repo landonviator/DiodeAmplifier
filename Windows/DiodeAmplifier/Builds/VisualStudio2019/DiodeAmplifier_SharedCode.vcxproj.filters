@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="DiodeAmplifier\Source\Assets">
+      <UniqueIdentifier>{71856F58-DA5D-84C8-5861-93C1DB89A76E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="DiodeAmplifier\Source">
       <UniqueIdentifier>{DB8C6A03-787D-A5E9-B8E6-584810884774}</UniqueIdentifier>
     </Filter>
@@ -2560,6 +2563,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData2.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -4958,6 +4964,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Assets\landon55-04.png">
+      <Filter>DiodeAmplifier\Source\Assets</Filter>
+    </None>
+    <None Include="..\..\Source\Assets\pluginBackground.png">
+      <Filter>DiodeAmplifier\Source\Assets</Filter>
+    </None>
     <None Include="..\..\Source\metalOne.wav">
       <Filter>DiodeAmplifier\Source</Filter>
     </None>

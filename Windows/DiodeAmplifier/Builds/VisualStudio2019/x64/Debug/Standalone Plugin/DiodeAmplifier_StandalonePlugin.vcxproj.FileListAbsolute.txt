@@ -1,2 +1,0 @@
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Builds\VisualStudio2019\x64\Debug\Standalone Plugin\DiodeAmplifier.exe
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Builds\VisualStudio2019\x64\Debug\Standalone Plugin\DiodeAmplifier.pdb
