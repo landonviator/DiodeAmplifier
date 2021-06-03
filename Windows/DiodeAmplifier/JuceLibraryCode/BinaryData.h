@@ -8,11 +8,17 @@
 
 namespace BinaryData
 {
+    extern const char*   landon5504_png;
+    const int            landon5504_pngSize = 26270;
+
+    extern const char*   pluginBackground_png;
+    const int            pluginBackground_pngSize = 4756604;
+
     extern const char*   metalOne_wav;
     const int            metalOne_wavSize = 241964;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 1;
+    const int namedResourceListSize = 3;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
