@@ -3,7 +3,7 @@
 <JUCERPROJECT id="azxQ31" name="DiodeAmplifier" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Viator DSP"
               bundleIdentifier="com.ViatorDSP.DiodeAmplifier" pluginName="Diode Amplifier"
-              pluginManufacturer="Viator DSP">
+              pluginManufacturer="Viator DSP" version="2.0.0">
   <MAINGROUP id="EovHyC" name="DiodeAmplifier">
     <GROUP id="{DF167744-D6F2-89FA-2018-29C7DCE390F3}" name="Source">
       <GROUP id="{63666860-49EF-BC62-7E10-6AF2C8F6C55F}" name="Assets">
