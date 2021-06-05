@@ -111,7 +111,7 @@ private:
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> highNotchFilter;
     
     juce::dsp::Gain<float> inputGainProcessor;
-    juce::dsp::Convolution convolutionProcessor;
+    juce::dsp::Convolution convolutionProcessor{ juce::dsp::Convolution::Latency{0} };
     juce::dsp::Gain<float> outputGainProcessor;
     
     juce::dsp::Oversampling<float> oversamplingProcessor;

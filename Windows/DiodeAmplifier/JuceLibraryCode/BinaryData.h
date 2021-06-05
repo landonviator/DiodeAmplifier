@@ -15,7 +15,7 @@ namespace BinaryData
     const int            pluginBackground_pngSize = 4756604;
 
     extern const char*   metalOne_wav;
-    const int            metalOne_wavSize = 241964;
+    const int            metalOne_wavSize = 24172;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 3;
