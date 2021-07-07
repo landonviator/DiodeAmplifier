@@ -1,5 +1,6 @@
 ﻿  PluginProcessor.cpp
   PluginEditor.cpp
+  CabButtonProps.cpp
   BinaryData.cpp
   BinaryData2.cpp
   include_juce_audio_basics.cpp
@@ -12,59 +13,7 @@
   include_juce_data_structures.cpp
   include_juce_dsp.cpp
   include_juce_events.cpp
-  include_juce_graphics.cpp
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.h(92,27): warning C4305: 'initializing': truncation from 'double' to 'const float' (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(25,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(26,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(27,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(28,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(34,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(35,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(42,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(23,160): warning C4100: 'slider': unreferenced formal parameter (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(51,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(52,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(53,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(54,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(60,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(61,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(69,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(49,160): warning C4100: 'slider': unreferenced formal parameter (compiling source file ..\..\Source\PluginProcessor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(175,59): warning C4100: 'index': unreferenced formal parameter
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(179,70): warning C4100: 'index': unreferenced formal parameter
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(184,86): warning C4100: 'newName': unreferenced formal parameter
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(184,59): warning C4100: 'index': unreferenced formal parameter
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(212,107): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(212,164): warning C4305: 'argument': truncation from 'double' to 'NumericType'
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(216,109): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(216,166): warning C4305: 'argument': truncation from 'double' to 'NumericType'
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(220,111): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(220,169): warning C4305: 'argument': truncation from 'double' to 'NumericType'
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.h(92,27): warning C4305: 'initializing': truncation from 'double' to 'const float' (compiling source file ..\..\Source\PluginEditor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.h(100,27): warning C4305: 'initializing': truncation from 'double' to 'const float' (compiling source file ..\..\Source\PluginEditor.cpp)
 C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(25,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginEditor.cpp)
 C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(26,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginEditor.cpp)
 C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(27,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginEditor.cpp)
@@ -81,108 +30,177 @@ C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\Via
 C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(61,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\PluginEditor.cpp)
 C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(69,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginEditor.cpp)
 C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(49,160): warning C4100: 'slider': unreferenced formal parameter (compiling source file ..\..\Source\PluginEditor.cpp)
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(304,50): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(328,101): warning C4244: 'argument': conversion from 'double' to 'FloatType', possible loss of data
-          with
-          [
-              FloatType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(281,102): warning C4100: 'midiMessages': unreferenced formal parameter
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(338,95): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(338,152): warning C4305: 'argument': truncation from 'double' to 'NumericType'
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(339,97): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(339,154): warning C4305: 'argument': truncation from 'double' to 'NumericType'
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(340,99): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(340,157): warning C4305: 'argument': truncation from 'double' to 'NumericType'
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(345,70): warning C4100: 'freq': unreferenced formal parameter
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(349,69): warning C4100: 'freq': unreferenced formal parameter
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(354,104): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(354,121): warning C4305: 'argument': truncation from 'double' to 'NumericType'
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(358,106): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(358,123): warning C4305: 'argument': truncation from 'double' to 'NumericType'
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(362,108): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
-          with
-          [
-              NumericType=float
-          ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(362,125): warning C4305: 'argument': truncation from 'double' to 'NumericType'
-          with
-          [
-              NumericType=float
-          ]
 C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(87,72): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(88,72): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(97,69): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(98,69): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(122,103): warning C4244: 'argument': conversion from 'int' to 'ValueType', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(95,69): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(96,69): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(106,75): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(107,75): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(114,73): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(115,73): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(141,103): warning C4244: 'argument': conversion from 'int' to 'ValueType', possible loss of data
           with
           [
               ValueType=float
           ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(122,68): warning C4244: 'argument': conversion from 'int' to 'ValueType', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(141,68): warning C4244: 'argument': conversion from 'int' to 'ValueType', possible loss of data
           with
           [
               ValueType=float
           ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(128,58): warning C4244: 'argument': conversion from 'int' to 'ValueType', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(147,58): warning C4244: 'argument': conversion from 'int' to 'ValueType', possible loss of data
           with
           [
               ValueType=float
           ]
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(135,92): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(139,198): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(139,156): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(139,105): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(139,63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(156,94): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(156,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(157,94): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(157,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(158,94): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(158,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(177,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(176,46): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(175,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(154,92): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(158,198): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(158,156): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(158,105): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(158,63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(175,94): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(175,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(176,94): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(176,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(177,94): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(177,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(187,100): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(198,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(197,46): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginEditor.cpp(196,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.h(100,27): warning C4305: 'initializing': truncation from 'double' to 'const float' (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(25,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(26,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(27,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(28,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(34,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(35,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(42,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(23,160): warning C4100: 'slider': unreferenced formal parameter (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(51,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(52,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(53,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(54,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(60,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(61,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(69,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(49,160): warning C4100: 'slider': unreferenced formal parameter (compiling source file ..\..\Source\PluginProcessor.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.h(100,27): warning C4305: 'initializing': truncation from 'double' to 'const float' (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(25,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(26,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(27,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(28,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(34,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(35,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(42,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(23,160): warning C4100: 'slider': unreferenced formal parameter (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(51,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(52,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(53,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(54,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(60,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(61,1): warning C4305: 'argument': truncation from 'double' to 'float' (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(69,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\ViatorDial.h(49,160): warning C4100: 'slider': unreferenced formal parameter (compiling source file ..\..\Source\CabButtonProps.cpp)
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(196,59): warning C4100: 'index': unreferenced formal parameter
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(200,70): warning C4100: 'index': unreferenced formal parameter
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(205,86): warning C4100: 'newName': unreferenced formal parameter
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(205,59): warning C4100: 'index': unreferenced formal parameter
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(233,107): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(233,164): warning C4305: 'argument': truncation from 'double' to 'NumericType'
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(237,109): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(237,166): warning C4305: 'argument': truncation from 'double' to 'NumericType'
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(241,111): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(241,169): warning C4305: 'argument': truncation from 'double' to 'NumericType'
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(316,50): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(293,102): warning C4100: 'midiMessages': unreferenced formal parameter
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(339,95): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(339,152): warning C4305: 'argument': truncation from 'double' to 'NumericType'
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(340,97): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(340,154): warning C4305: 'argument': truncation from 'double' to 'NumericType'
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(341,99): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(341,157): warning C4305: 'argument': truncation from 'double' to 'NumericType'
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(346,70): warning C4100: 'freq': unreferenced formal parameter
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(350,69): warning C4100: 'freq': unreferenced formal parameter
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(355,104): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(355,121): warning C4305: 'argument': truncation from 'double' to 'NumericType'
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(359,106): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(359,123): warning C4305: 'argument': truncation from 'double' to 'NumericType'
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(363,108): warning C4244: 'argument': conversion from 'double' to 'NumericType', possible loss of data
+          with
+          [
+              NumericType=float
+          ]
+C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Source\PluginProcessor.cpp(363,125): warning C4305: 'argument': truncation from 'double' to 'NumericType'
+          with
+          [
+              NumericType=float
+          ]
+  include_juce_graphics.cpp
   include_juce_gui_basics.cpp
   include_juce_gui_extra.cpp
   DiodeAmplifier_SharedCode.vcxproj -> C:\Users\lando\Documents\GitHub\DiodeAmplifier\Windows\DiodeAmplifier\Builds\VisualStudio2019\x64\Release\Shared Code\DiodeAmplifier.lib

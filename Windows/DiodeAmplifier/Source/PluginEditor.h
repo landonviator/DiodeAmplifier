@@ -33,8 +33,9 @@ private:
     std::unique_ptr <juce::AudioProcessorValueTreeState::SliderAttachment> inputSliderAttach, driveSliderAttach, lowSliderAttach, midSliderAttach, highSliderAttach, outputSliderAttach;
         
     // Buttons
-    juce::TextButton brightButton, cabButton;
-    std::unique_ptr <juce::AudioProcessorValueTreeState::ButtonAttachment> brightButtonAttach, cabButtonAttach;
+    void setCabButtonProps();
+    juce::TextButton brightButton, cabButton, cabToggleButton, resetIRButton;
+    std::unique_ptr <juce::AudioProcessorValueTreeState::ButtonAttachment> brightButtonAttach, cabToggleAttach;
 
     // Window
     juce::GroupComponent windowBorder;
@@ -68,7 +69,9 @@ private:
     juce::ComboBox mSampleMenu;
     std::unique_ptr <juce::AudioProcessorValueTreeState::ComboBoxAttachment> mSampleMenuAttach;
     
+    juce::AlertWindow settingsDialog {"Settings Window",
+            "Congrats, you opened the window, but it doesn't do anything", juce::AlertWindow::AlertIconType::InfoIcon};
+    
     DiodeAmplifierAudioProcessor& audioProcessor;
-
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DiodeAmplifierAudioProcessorEditor)
 };

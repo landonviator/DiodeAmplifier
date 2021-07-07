@@ -88,13 +88,20 @@ public:
     juce::AudioProcessorValueTreeState treeState;
     juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
     
+    juce::ValueTree variableTree;
+    
+    juce::File savedFile;
+    std::unique_ptr<juce::File> location;
+
+    juce::dsp::Convolution convolutionProcessor{juce::dsp::Convolution::Latency{0}};
+
+    
 private:
     const float piDivisor = 2.0 / 3.14;
     double lastSampleRate;
     double projectSampleRate {44100.0};
     float driveScaled;
     bool convolutionToggle, oversamplingToggle;
-    
     
     void setAllSampleRates(float value);
     
@@ -111,11 +118,15 @@ private:
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> highNotchFilter;
     
     juce::dsp::Gain<float> inputGainProcessor;
-    juce::dsp::Convolution convolutionProcessor{ juce::dsp::Convolution::Latency{0} };
+        
     juce::dsp::Gain<float> outputGainProcessor;
     
     juce::dsp::Oversampling<float> oversamplingProcessor;
+    
 
+    juce::AlertWindow settingsDialog {"Settings Window",
+            "Congrats, you opened the window, but it doesn't do anything", juce::AlertWindow::AlertIconType::InfoIcon};
+    
     // Parameter listener function
     void parameterChanged (const juce::String& parameterID, float newValue) override;
     

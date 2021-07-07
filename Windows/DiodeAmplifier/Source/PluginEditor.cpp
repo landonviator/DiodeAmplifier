@@ -88,14 +88,33 @@ DiodeAmplifierAudioProcessorEditor::DiodeAmplifierAudioProcessorEditor (DiodeAmp
     brightButton.setColour(0x1000103, juce::Colours::black.brighter(0.1));
 
     addAndMakeVisible(&cabButton);
-    cabButton.setButtonText("Cab");
-    cabButton.setClickingTogglesState(true);
-    cabButtonAttach = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(audioProcessor.treeState, cabId, cabButton);
+    cabButton.setButtonText("Load IR");
     cabButton.setColour(0x1000100, juce::Colours::whitesmoke.darker(1.0).withAlpha(1.0f));
     cabButton.setColour(0x1000c00, juce::Colour::fromFloatRGBA(0, 0, 0, 0));
     cabButton.setColour(0x1000101, juce::Colours::lightgoldenrodyellow.darker(0.2f));
     cabButton.setColour(0x1000102, juce::Colours::black.brighter(0.1));
     cabButton.setColour(0x1000103, juce::Colours::black.brighter(0.1));
+    
+    addAndMakeVisible(&cabToggleButton);
+    cabToggleButton.setClickingTogglesState(true);
+    cabToggleButton.setToggleState(true, juce::dontSendNotification);
+    cabToggleButton.setButtonText("Cab On");
+    cabToggleAttach = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(audioProcessor.treeState, cabId, cabToggleButton);
+    cabToggleButton.setColour(0x1000100, juce::Colours::whitesmoke.darker(1.0).withAlpha(1.0f));
+    cabToggleButton.setColour(0x1000c00, juce::Colour::fromFloatRGBA(0, 0, 0, 0));
+    cabToggleButton.setColour(0x1000101, juce::Colours::lightgoldenrodyellow.darker(0.2f));
+    cabToggleButton.setColour(0x1000102, juce::Colours::black.brighter(0.1));
+    cabToggleButton.setColour(0x1000103, juce::Colours::black.brighter(0.1));
+    
+    addAndMakeVisible(&resetIRButton);
+    resetIRButton.setButtonText("Reset IR");
+    resetIRButton.setColour(0x1000100, juce::Colours::whitesmoke.darker(1.0).withAlpha(1.0f));
+    resetIRButton.setColour(0x1000c00, juce::Colour::fromFloatRGBA(0, 0, 0, 0));
+    resetIRButton.setColour(0x1000101, juce::Colours::lightgoldenrodyellow.darker(0.2f));
+    resetIRButton.setColour(0x1000102, juce::Colours::black.brighter(0.1));
+    resetIRButton.setColour(0x1000103, juce::Colours::black.brighter(0.1));
+    
+    setCabButtonProps();
     
     setSize (711, 500);
 }
@@ -165,8 +184,10 @@ void DiodeAmplifierAudioProcessorEditor::resized()
     midSlider.setBounds(driveSlider.getX(), driveSlider.getY() + driveSlider.getHeight() + 32, driveSlider.getWidth(), driveSlider.getHeight());
     highSlider.setBounds(outputSlider.getX(), outputSlider.getY() + outputSlider.getHeight() + 32, outputSlider.getWidth(), outputSlider.getHeight());
     
-    brightButton.setBounds(outputSlider.getX() + outputSlider.getWidth(), outputSlider.getY() + 28, 64, 48);
-    cabButton.setBounds(highSlider.getX() + highSlider.getWidth(), highSlider.getY() + 28, 64, 48);
+    brightButton.setBounds(outputSlider.getX() + outputSlider.getWidth() - 24, outputSlider.getY() * 1.5, 72, 32);
+    cabButton.setBounds(brightButton.getX(), brightButton.getY() + brightButton.getHeight(), 72, 32);
+    cabToggleButton.setBounds(cabButton.getX(), cabButton.getY() + cabButton.getHeight(), 72, 32);
+    resetIRButton.setBounds(cabToggleButton.getX(), cabToggleButton.getY() + cabToggleButton.getHeight(), 72, 32);
 
     // Window border bounds
         windowBorder.setBounds
