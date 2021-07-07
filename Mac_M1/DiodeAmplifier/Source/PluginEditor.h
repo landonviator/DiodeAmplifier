@@ -34,8 +34,8 @@ private:
         
     // Buttons
     void setCabButtonProps();
-    juce::TextButton brightButton, cabButton;
-    std::unique_ptr <juce::AudioProcessorValueTreeState::ButtonAttachment> brightButtonAttach, cabButtonAttach;
+    juce::TextButton brightButton, cabButton, cabToggleButton, resetIRButton;
+    std::unique_ptr <juce::AudioProcessorValueTreeState::ButtonAttachment> brightButtonAttach, cabToggleAttach;
 
     // Window
     juce::GroupComponent windowBorder;

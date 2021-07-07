@@ -38,4 +38,23 @@ void DiodeAmplifierAudioProcessorEditor::setCabButtonProps()
             }
         }
     };
+    
+    cabToggleButton.onClick = [&]()
+    {
+        const auto message = cabToggleButton.getToggleState() ? "Cab On" : "Cab Off";
+                
+        cabToggleButton.setButtonText(message);
+    };
+    
+    resetIRButton.onClick = [&]()
+    {
+        audioProcessor.convolutionProcessor.loadImpulseResponse
+        (BinaryData::metalOne_wav,
+         BinaryData::metalOne_wavSize,
+         juce::dsp::Convolution::Stereo::yes,
+         juce::dsp::Convolution::Trim::yes, 0,
+         juce::dsp::Convolution::Normalise::yes);
+        
+        audioProcessor.variableTree.setProperty("file", "/source/metalOne.wav", nullptr);
+    };
 }

@@ -15,9 +15,9 @@ DiodeAmplifierAudioProcessor::DiodeAmplifierAudioProcessor()
      : AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
                       #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
+                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), false)
                       #endif
-                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
+                       .withOutput ("Output", juce::AudioChannelSet::stereo(), false)
                      #endif
                        ),
 treeState (*this, nullptr, "PARAMETER", createParameterLayout())
@@ -254,9 +254,9 @@ void DiodeAmplifierAudioProcessor::prepareToPlay (double sampleRate, int samples
     outputGainProcessor.setGainDecibels(*treeState.getRawParameterValue(outputGainSliderId));
 
     convolutionProcessor.prepare(spec);
-        
-    convolutionToggle = *treeState.getRawParameterValue(cabId);
     
+    convolutionToggle = *treeState.getRawParameterValue(cabId);
+        
     driveScaled = pow(10.0f, *treeState.getRawParameterValue(driveSliderId) * 0.25f);
 }
 
@@ -327,7 +327,7 @@ void DiodeAmplifierAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
 
     highNotchFilter.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 
-    convolutionProcessor.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
+    if (convolutionToggle) convolutionProcessor.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
     
     outputGainProcessor.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 }
@@ -395,28 +395,23 @@ void DiodeAmplifierAudioProcessor::setStateInformation (const void* data, int si
         treeState.state = tree;
     }
     
-    DBG(variableTree.getProperty("file").toString());
-    
     savedFile = juce::File(variableTree.getProperty("file"));
     
-        if (savedFile.existsAsFile())
-        {
-            convolutionProcessor.loadImpulseResponse(savedFile, juce::dsp::Convolution::Stereo::yes, juce::dsp::Convolution::Trim::yes, 0);
-            DBG("Location exists as file");
-        }
+    if (savedFile.existsAsFile())
+    {
+        convolutionProcessor.loadImpulseResponse(savedFile, juce::dsp::Convolution::Stereo::yes, juce::dsp::Convolution::Trim::yes, 0);
+        DBG("Location exists as file");
+    }
     
-        else
-        {
-            convolutionProcessor.loadImpulseResponse
-            (BinaryData::metalOne_wav,
-             BinaryData::metalOne_wavSize,
-             juce::dsp::Convolution::Stereo::yes,
-             juce::dsp::Convolution::Trim::yes, 0,
-             juce::dsp::Convolution::Normalise::yes);
-            
-            settingsDialog.showNativeDialogBox("Soft Error", "The file you saved was either moved or deleted, so I reset the IR to be the default one.", false);
-
-        }
+    else
+    {
+        convolutionProcessor.loadImpulseResponse
+        (BinaryData::metalOne_wav,
+            BinaryData::metalOne_wavSize,
+            juce::dsp::Convolution::Stereo::yes,
+            juce::dsp::Convolution::Trim::yes, 0,
+            juce::dsp::Convolution::Normalise::yes);
+    }
 }
 
 //==============================================================================
