@@ -46,6 +46,7 @@
 		68AEA9D1A9EF67516F330272 /* include_juce_graphics.mm */ = {isa = PBXBuildFile; fileRef = FC77FB50E059977EF1817901; };
 		78DB9D37570AFE8A4766C12A /* RecentFilesMenuTemplate.nib */ = {isa = PBXBuildFile; fileRef = E82D0A47C4D4D17F6999CE12; };
 		7A6A57A7C1D2519BC615A136 /* PluginEditor.cpp */ = {isa = PBXBuildFile; fileRef = E6A5E4E231653A572097D5B9; };
+		7B3FA85C2653DE21E44F26AF /* CabButtonProps.cpp */ = {isa = PBXBuildFile; fileRef = D4C59E63C16B40307787A5D3; };
 		7E97FBC8C892EFC8696D1535 /* AU */ = {isa = PBXBuildFile; fileRef = D2EF7BA44CE1F2C6936FBACB; };
 		838BC66BBA9F2E5620EB1B9C /* CoreAudioKit.framework */ = {isa = PBXBuildFile; fileRef = 1043ADDD2854FE7739CF36A5; };
 		8886C51CB41B9A19F4E96573 /* DiscRecording.framework */ = {isa = PBXBuildFile; fileRef = 0306BE77598742375B69124B; };
@@ -121,6 +122,7 @@
 		D328D13AA34AC7AA34F232A9 /* include_juce_audio_plugin_client_Standalone.cpp */ /* include_juce_audio_plugin_client_Standalone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_plugin_client_Standalone.cpp; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp; sourceTree = SOURCE_ROOT; };
 		D479F27324AFA4A22FEAFAA4 /* include_juce_audio_utils.mm */ /* include_juce_audio_utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_utils.mm; path = ../../JuceLibraryCode/include_juce_audio_utils.mm; sourceTree = SOURCE_ROOT; };
 		D48283E5A08FBC790B737AAF /* Cocoa.framework */ /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D4C59E63C16B40307787A5D3 /* CabButtonProps.cpp */ /* CabButtonProps.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CabButtonProps.cpp; path = ../../Source/CabButtonProps.cpp; sourceTree = SOURCE_ROOT; };
 		DD46A98DD32358D489193B40 /* include_juce_audio_plugin_client_VST3.cpp */ /* include_juce_audio_plugin_client_VST3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_plugin_client_VST3.cpp; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_VST3.cpp; sourceTree = SOURCE_ROOT; };
 		DDDAF6394404E0C25A1BEA30 /* AudioToolbox.framework */ /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E13F0A54B10008DFA8405364 /* QuartzCore.framework */ /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -214,6 +216,7 @@
 		25B529BBD50FB3C4CF0896CB /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				819B7C64D228715CE28220BA,
 				FC30DA461A56B8E1A1E4C49A,
 				A4EB19CDBBD5BE8305345DDC,
 				E59DB105E96F85061C0C6A9B,
@@ -253,6 +256,14 @@
 				25B529BBD50FB3C4CF0896CB,
 			);
 			name = DiodeAmplifier;
+			sourceTree = "<group>";
+		};
+		819B7C64D228715CE28220BA /* CabButton */ = {
+			isa = PBXGroup;
+			children = (
+				D4C59E63C16B40307787A5D3,
+			);
+			name = CabButton;
 			sourceTree = "<group>";
 		};
 		B702E4D8F01C21BBE9C7944F /* JUCE Modules */ = {
@@ -592,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B3FA85C2653DE21E44F26AF,
 				37959E8B9BD8C5CC34DEC427,
 				7A6A57A7C1D2519BC615A136,
 				2E2AB067C9DDE9B932628E6C,

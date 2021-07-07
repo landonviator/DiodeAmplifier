@@ -33,6 +33,27 @@ treeState (*this, nullptr, "PARAMETER", createParameterLayout())
     treeState.addParameterListener (brightId, this);
     treeState.addParameterListener (cabId, this);
     treeState.addParameterListener (menuId, this);
+    
+    variableTree = {
+            
+            "DiodeVariables", {},
+            {
+              { "Group", {{ "name", "DiodeVars" }},
+                {
+                  { "Parameter", {{ "id", "file" }, { "value", "/" }}}
+                }
+              }
+            }
+          };
+    
+    convolutionProcessor.loadImpulseResponse
+    (BinaryData::metalOne_wav,
+     BinaryData::metalOne_wavSize,
+     juce::dsp::Convolution::Stereo::yes,
+     juce::dsp::Convolution::Trim::yes, 0,
+     juce::dsp::Convolution::Normalise::yes);
+    
+    location = std::make_unique<juce::File>(variableTree.getProperty("location").toString());
 }
 
 DiodeAmplifierAudioProcessor::~DiodeAmplifierAudioProcessor()
@@ -234,13 +255,6 @@ void DiodeAmplifierAudioProcessor::prepareToPlay (double sampleRate, int samples
 
     convolutionProcessor.prepare(spec);
         
-    convolutionProcessor.loadImpulseResponse
-    (BinaryData::metalOne_wav,
-     BinaryData::metalOne_wavSize,
-     juce::dsp::Convolution::Stereo::yes,
-     juce::dsp::Convolution::Trim::yes, 0,
-     juce::dsp::Convolution::Normalise::yes);
-    
     convolutionToggle = *treeState.getRawParameterValue(cabId);
     
     driveScaled = pow(10.0f, *treeState.getRawParameterValue(driveSliderId) * 0.25f);
@@ -248,8 +262,6 @@ void DiodeAmplifierAudioProcessor::prepareToPlay (double sampleRate, int samples
 
 void DiodeAmplifierAudioProcessor::releaseResources()
 {
-    // When playback stops, you can use this as an opportunity to free up any
-    // spare memory, etc.
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -314,19 +326,8 @@ void DiodeAmplifierAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
     highFilter.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 
     highNotchFilter.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
-    
-    if (convolutionToggle)
-        
-        {
-            convolutionProcessor.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
-            outputGainProcessor.setGainDecibels(*treeState.getRawParameterValue(outputGainSliderId));
-        }
-    
-    else
-        
-        {
-            outputGainProcessor.setGainDecibels(*treeState.getRawParameterValue(outputGainSliderId) - 18.0);
-        }
+
+    convolutionProcessor.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
     
     outputGainProcessor.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 }
@@ -376,16 +377,46 @@ juce::AudioProcessorEditor* DiodeAmplifierAudioProcessor::createEditor()
 //==============================================================================
 void DiodeAmplifierAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
+    treeState.state.appendChild(variableTree, nullptr);
+
     juce::MemoryOutputStream stream(destData, false);
+            
     treeState.state.writeToStream (stream);
 }
 
 void DiodeAmplifierAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    juce::ValueTree tree = juce::ValueTree::readFromData (data, size_t (sizeInBytes));
-    if (tree.isValid()) {
+    auto tree = juce::ValueTree::readFromData (data, size_t(sizeInBytes));
+        
+    variableTree = tree.getChildWithName("DiodeVariables");
+        
+    if (tree.isValid())
+    {
         treeState.state = tree;
     }
+    
+    DBG(variableTree.getProperty("file").toString());
+    
+    savedFile = juce::File(variableTree.getProperty("file"));
+    
+        if (savedFile.existsAsFile())
+        {
+            convolutionProcessor.loadImpulseResponse(savedFile, juce::dsp::Convolution::Stereo::yes, juce::dsp::Convolution::Trim::yes, 0);
+            DBG("Location exists as file");
+        }
+    
+        else
+        {
+            convolutionProcessor.loadImpulseResponse
+            (BinaryData::metalOne_wav,
+             BinaryData::metalOne_wavSize,
+             juce::dsp::Convolution::Stereo::yes,
+             juce::dsp::Convolution::Trim::yes, 0,
+             juce::dsp::Convolution::Normalise::yes);
+            
+            settingsDialog.showNativeDialogBox("Soft Error", "The file you saved was either moved or deleted, so I reset the IR to be the default one.", false);
+
+        }
 }
 
 //==============================================================================

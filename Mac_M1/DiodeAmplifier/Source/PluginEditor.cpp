@@ -89,13 +89,14 @@ DiodeAmplifierAudioProcessorEditor::DiodeAmplifierAudioProcessorEditor (DiodeAmp
 
     addAndMakeVisible(&cabButton);
     cabButton.setButtonText("Cab");
-    cabButton.setClickingTogglesState(true);
-    cabButtonAttach = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(audioProcessor.treeState, cabId, cabButton);
+//    cabButtonAttach = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(audioProcessor.treeState, cabId, cabButton);
     cabButton.setColour(0x1000100, juce::Colours::whitesmoke.darker(1.0).withAlpha(1.0f));
     cabButton.setColour(0x1000c00, juce::Colour::fromFloatRGBA(0, 0, 0, 0));
     cabButton.setColour(0x1000101, juce::Colours::lightgoldenrodyellow.darker(0.2f));
     cabButton.setColour(0x1000102, juce::Colours::black.brighter(0.1));
     cabButton.setColour(0x1000103, juce::Colours::black.brighter(0.1));
+    
+    setCabButtonProps();
     
     setSize (711, 500);
 }

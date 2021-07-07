@@ -6,6 +6,10 @@
               pluginManufacturer="Viator DSP">
   <MAINGROUP id="FRMMBe" name="DiodeAmplifier">
     <GROUP id="{5842A5EB-625C-143E-31B9-0DC192374202}" name="Source">
+      <GROUP id="{912C1C77-D283-9979-C8D0-75C45110F879}" name="CabButton">
+        <FILE id="o4z38g" name="CabButtonProps.cpp" compile="1" resource="0"
+              file="Source/CabButtonProps.cpp"/>
+      </GROUP>
       <GROUP id="{0A094566-15E6-90CE-514E-9FC97858920A}" name="Assets">
         <FILE id="ENKyrE" name="landon55-04.png" compile="0" resource="1" file="Source/Assets/landon55-04.png"/>
         <FILE id="KhPyzf" name="pluginBackground.png" compile="0" resource="1"
