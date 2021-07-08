@@ -90,7 +90,7 @@ public:
     
     juce::ValueTree variableTree;
     
-    juce::File savedFile;
+    juce::File savedFile, root;
     std::unique_ptr<juce::File> location;
 
     juce::dsp::Convolution convolutionProcessor{juce::dsp::Convolution::Latency{0}};

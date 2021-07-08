@@ -40,7 +40,8 @@ treeState (*this, nullptr, "PARAMETER", createParameterLayout())
             {
               { "Group", {{ "name", "DiodeVars" }},
                 {
-                  { "Parameter", {{ "id", "file" }, { "value", "/" }}}
+                  { "Parameter", {{ "id", "file" }, { "value", "/" }}},
+                    { "Parameter", {{ "id", "root" }, { "value", "/" }}}
                 }
               }
             }
@@ -53,7 +54,6 @@ treeState (*this, nullptr, "PARAMETER", createParameterLayout())
      juce::dsp::Convolution::Trim::yes, 0,
      juce::dsp::Convolution::Normalise::yes);
     
-    location = std::make_unique<juce::File>(variableTree.getProperty("location").toString());
 }
 
 DiodeAmplifierAudioProcessor::~DiodeAmplifierAudioProcessor()
@@ -78,7 +78,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout DiodeAmplifierAudioProcessor
     auto driveParam = std::make_unique<juce::AudioParameterFloat>(driveSliderId, driveSliderName, 0.0f, 10.0f, 0.0f);
     auto lowParam = std::make_unique<juce::AudioParameterFloat>(lowSliderId, lowSliderName, -6.0f, 6.0f, 0.0f);
     auto midParam = std::make_unique<juce::AudioParameterFloat>(midSliderId, midSliderName, -6.0f, 6.0f, 0.0f);
-    auto highParam = std::make_unique<juce::AudioParameterFloat>(highSliderId, highSliderName, -6.0f, 6.0f, 6.0f);
+    auto highParam = std::make_unique<juce::AudioParameterFloat>(highSliderId, highSliderName, -6.0f, 6.0f, 0.0f);
     auto outputGainParam = std::make_unique<juce::AudioParameterFloat>(outputGainSliderId, outputGainSliderName, -24.0f, 24.0f, 0.0f);
     auto brightParam = std::make_unique<juce::AudioParameterBool>(brightId, brightName, false);
     auto cabParam = std::make_unique<juce::AudioParameterBool>(cabId, cabName, true);
@@ -137,6 +137,16 @@ void DiodeAmplifierAudioProcessor::parameterChanged(const juce::String &paramete
     else if (parameterID == cabId)
         {
             convolutionToggle = newValue;
+            
+            if (newValue == 0)
+            {
+                outputGainProcessor.setGainDecibels(*treeState.getRawParameterValue(outputGainSliderId) - 18.0);
+            }
+            
+            else
+            {
+                outputGainProcessor.setGainDecibels(*treeState.getRawParameterValue(outputGainSliderId));
+            }
         }
     else if (parameterID == menuId)
         {
@@ -396,6 +406,8 @@ void DiodeAmplifierAudioProcessor::setStateInformation (const void* data, int si
     }
     
     savedFile = juce::File(variableTree.getProperty("file"));
+    root = juce::File(variableTree.getProperty("root"));
+
     
     if (savedFile.existsAsFile())
     {
