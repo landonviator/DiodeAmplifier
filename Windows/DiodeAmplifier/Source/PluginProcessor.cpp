@@ -140,12 +140,12 @@ void DiodeAmplifierAudioProcessor::parameterChanged(const juce::String &paramete
             
             if (newValue == 0)
             {
-                outputGainProcessor.setGainDecibels(*treeState.getRawParameterValue(outputGainSliderId) - 18.0);
+                treeState.getParameterAsValue(outputGainSliderId) = *treeState.getRawParameterValue(outputGainSliderId) - 18.0;
             }
             
             else
             {
-                outputGainProcessor.setGainDecibels(*treeState.getRawParameterValue(outputGainSliderId));
+                treeState.getParameterAsValue(outputGainSliderId) = *treeState.getRawParameterValue(outputGainSliderId) + 18.0;
             }
         }
     else if (parameterID == menuId)
