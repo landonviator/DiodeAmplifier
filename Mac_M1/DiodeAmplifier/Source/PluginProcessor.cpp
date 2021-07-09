@@ -41,11 +41,14 @@ treeState (*this, nullptr, "PARAMETER", createParameterLayout())
               { "Group", {{ "name", "DiodeVars" }},
                 {
                   { "Parameter", {{ "id", "file" }, { "value", "/" }}},
-                    { "Parameter", {{ "id", "root" }, { "value", "/" }}}
+                    { "Parameter", {{ "id", "root" }, { "value", "/" }}},
+                    { "Parameter", {{ "id", "cabOffGain" }, { "value", -16.0 }}}
                 }
               }
             }
           };
+    
+    variableTree.setProperty("cabOffGain", -16.0, nullptr);
     
     convolutionProcessor.loadImpulseResponse
     (BinaryData::metalOne_wav,
@@ -122,6 +125,8 @@ void DiodeAmplifierAudioProcessor::parameterChanged(const juce::String &paramete
     else if (parameterID == outputGainSliderId)
         {
             outputGainProcessor.setGainDecibels(newValue);
+            
+            if (!convolutionToggle) variableTree.setProperty("cabOffGain", newValue, nullptr);
         }
     
     else if (parameterID == driveSliderId)
@@ -140,12 +145,13 @@ void DiodeAmplifierAudioProcessor::parameterChanged(const juce::String &paramete
             
             if (newValue == 0)
             {
-                treeState.getParameterAsValue(outputGainSliderId) = *treeState.getRawParameterValue(outputGainSliderId) - 18.0;
+                treeState.getParameterAsValue(outputGainSliderId) = variableTree.getProperty("cabOffGain");
+                DBG(variableTree.getProperty("cabOffGain").toString());
             }
             
             else
             {
-                treeState.getParameterAsValue(outputGainSliderId) = *treeState.getRawParameterValue(outputGainSliderId) + 18.0;
+                treeState.getParameterAsValue(outputGainSliderId) = 0.0;
             }
         }
     else if (parameterID == menuId)
@@ -424,6 +430,8 @@ void DiodeAmplifierAudioProcessor::setStateInformation (const void* data, int si
             juce::dsp::Convolution::Trim::yes, 0,
             juce::dsp::Convolution::Normalise::yes);
     }
+    
+    if (!convolutionToggle) treeState.getParameterAsValue(outputGainSliderId) = variableTree.getProperty("cabOffGain");
 }
 
 //==============================================================================
