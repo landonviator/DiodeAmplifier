@@ -29,7 +29,8 @@ void DiodeAmplifierAudioProcessorEditor::setCabButtonProps()
                 
                 audioProcessor.variableTree.setProperty("file", audioProcessor.savedFile.getFullPathName(), nullptr);
                 audioProcessor.variableTree.setProperty("root", audioProcessor.savedFile.getParentDirectory().getFullPathName(), nullptr);
-
+                
+                audioProcessor.root = audioProcessor.savedFile.getParentDirectory().getFullPathName();
 
                 audioProcessor.convolutionProcessor.loadImpulseResponse(audioProcessor.savedFile, juce::dsp::Convolution::Stereo::yes, juce::dsp::Convolution::Trim::yes, 0);
                         
