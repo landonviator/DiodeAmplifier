@@ -17,8 +17,10 @@ void DiodeAmplifierAudioProcessorEditor::setCabButtonProps()
     
     cabButton.onClick = [&]()
     {
-        juce::FileChooser chooser ("Select an impulse response", {}, "*");
+        juce::FileChooser chooser ("Select an impulse response", audioProcessor.root, "*");
                 
+    
+        
         if (chooser.browseForFileToOpen())
         {
             if (chooser.getResult().getFileExtension() == ".wav" || chooser.getResult().getFileExtension() == ".mp3")
@@ -26,6 +28,9 @@ void DiodeAmplifierAudioProcessorEditor::setCabButtonProps()
                 audioProcessor.savedFile = chooser.getResult();
                 
                 audioProcessor.variableTree.setProperty("file", audioProcessor.savedFile.getFullPathName(), nullptr);
+                audioProcessor.variableTree.setProperty("root", audioProcessor.savedFile.getParentDirectory().getFullPathName(), nullptr);
+
+                audioProcessor.root = audioProcessor.savedFile.getParentDirectory().getFullPathName();
 
                 audioProcessor.convolutionProcessor.loadImpulseResponse(audioProcessor.savedFile, juce::dsp::Convolution::Stereo::yes, juce::dsp::Convolution::Trim::yes, 0);
                         
