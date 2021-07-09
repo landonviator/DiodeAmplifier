@@ -48,7 +48,6 @@ treeState (*this, nullptr, "PARAMETER", createParameterLayout())
             }
           };
     
-    variableTree.setProperty("cabOffGain", -16.0, nullptr);
     
     convolutionProcessor.loadImpulseResponse
     (BinaryData::metalOne_wav,
@@ -145,8 +144,7 @@ void DiodeAmplifierAudioProcessor::parameterChanged(const juce::String &paramete
             
             if (newValue == 0)
             {
-                treeState.getParameterAsValue(outputGainSliderId) = variableTree.getProperty("cabOffGain");
-                DBG(variableTree.getProperty("cabOffGain").toString());
+                treeState.getParameterAsValue(outputGainSliderId) = -16.0;
             }
             
             else
@@ -430,8 +428,6 @@ void DiodeAmplifierAudioProcessor::setStateInformation (const void* data, int si
             juce::dsp::Convolution::Trim::yes, 0,
             juce::dsp::Convolution::Normalise::yes);
     }
-    
-    if (!convolutionToggle) treeState.getParameterAsValue(outputGainSliderId) = variableTree.getProperty("cabOffGain");
 }
 
 //==============================================================================
