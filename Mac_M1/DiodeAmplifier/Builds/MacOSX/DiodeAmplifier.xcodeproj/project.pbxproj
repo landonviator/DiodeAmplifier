@@ -30,6 +30,7 @@
 		0A0F805790DBB0F75E87814B /* include_juce_data_structures.mm */ = {isa = PBXBuildFile; fileRef = CE22F65DEB8C8B6C7E83FC1A; };
 		0F32B1BC8C61B8A1A9B857A1 /* CoreMIDI.framework */ = {isa = PBXBuildFile; fileRef = F4DBD8DDE703F9A590D98468; };
 		166E19FD491FF6C793D58012 /* CoreAudio.framework */ = {isa = PBXBuildFile; fileRef = E2A208EDE5BABEA6CB8386E6; };
+		169D2AFBE4FFDCD202A1F373 /* BinaryData3.cpp */ = {isa = PBXBuildFile; fileRef = 4E231228F906D3D9550EAFFF; };
 		1AAA6F778896A99DEEC43B0C /* include_juce_audio_plugin_client_VST3.cpp */ = {isa = PBXBuildFile; fileRef = DD46A98DD32358D489193B40; };
 		1B78F568E09383CE096D632E /* WebKit.framework */ = {isa = PBXBuildFile; fileRef = 9017AF8E47183A772EB82124; };
 		1DB82610D387D8C8BB79C406 /* include_juce_audio_plugin_client_AU_2.mm */ = {isa = PBXBuildFile; fileRef = 8B4D74FC6C2F8653B547ACA4; };
@@ -86,8 +87,10 @@
 		2CA3A02493EB557DCEC2E1E3 /* juce_events */ /* juce_events */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_events; path = /Users/land00m/Documents/GitHub/JUCE/modules/juce_events; sourceTree = "<absolute>"; };
 		2EE3848EC75705FF584D0EE5 /* include_juce_audio_plugin_client_AU.r */ /* include_juce_audio_plugin_client_AU.r */ = {isa = PBXFileReference; lastKnownFileType = file.r; name = include_juce_audio_plugin_client_AU.r; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_AU.r; sourceTree = SOURCE_ROOT; };
 		38893884C17B20DC37F7648C /* juce_gui_basics */ /* juce_gui_basics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_gui_basics; path = /Users/land00m/Documents/GitHub/JUCE/modules/juce_gui_basics; sourceTree = "<absolute>"; };
+		39D4EC99FD27068A93F0D62E /* PluginBackground1.png */ /* PluginBackground1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PluginBackground1.png; path = ../../Source/Assets/PluginBackground1.png; sourceTree = SOURCE_ROOT; };
 		3C2700797A2C7F3221C52674 /* Standalone Plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiodeAmplifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9BC42E295DFD1BCCCC1BF0 /* include_juce_audio_formats.mm */ /* include_juce_audio_formats.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_formats.mm; path = ../../JuceLibraryCode/include_juce_audio_formats.mm; sourceTree = SOURCE_ROOT; };
+		4E231228F906D3D9550EAFFF /* BinaryData3.cpp */ /* BinaryData3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BinaryData3.cpp; path = ../../JuceLibraryCode/BinaryData3.cpp; sourceTree = SOURCE_ROOT; };
 		52E87CE3A38A42D7AD146346 /* Info-VST3.plist */ /* Info-VST3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-VST3.plist"; path = "Info-VST3.plist"; sourceTree = SOURCE_ROOT; };
 		57A0A95AE3DDCEEBE1229B8D /* IOKit.framework */ /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		5A3C1F5334CA73A7F3312DE0 /* pluginBackground.png */ /* pluginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pluginBackground.png; path = ../../Source/Assets/pluginBackground.png; sourceTree = SOURCE_ROOT; };
@@ -312,6 +315,7 @@
 				06F3B24D608E5C63F09E3616,
 				B9CB211BC991AC6A11035B0C,
 				051C930C3F6EF4B7A3E978D7,
+				4E231228F906D3D9550EAFFF,
 				1DF117562999958C6F20F191,
 				1CD8BA83528502E18418B799,
 				3D9BC42E295DFD1BCCCC1BF0,
@@ -342,6 +346,7 @@
 			children = (
 				6E92908C4A372BA636823F32,
 				5A3C1F5334CA73A7F3312DE0,
+				39D4EC99FD27068A93F0D62E,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 				7A6A57A7C1D2519BC615A136,
 				2E2AB067C9DDE9B932628E6C,
 				2F1E2B9E9B5CB6FF6AE71398,
+				169D2AFBE4FFDCD202A1F373,
 				CC3AEA7A3A32F0B64FEC94BA,
 				01A063B4C47013A1672A0B2E,
 				9D12D27BBC738814FB3F1E64,

@@ -14,11 +14,14 @@ namespace BinaryData
     extern const char*   pluginBackground_png;
     const int            pluginBackground_pngSize = 4756604;
 
+    extern const char*   PluginBackground1_png;
+    const int            PluginBackground1_pngSize = 7394619;
+
     extern const char*   metalOne_wav;
     const int            metalOne_wavSize = 3100;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 3;
+    const int namedResourceListSize = 4;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

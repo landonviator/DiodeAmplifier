@@ -13,9 +13,10 @@
 DiodeAmplifierAudioProcessorEditor::DiodeAmplifierAudioProcessorEditor (DiodeAmplifierAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
-        shadowProperties.radius = 24;
-        shadowProperties.offset = juce::Point<int> (-1, 3);
-        dialShadow.setShadowProperties (shadowProperties);
+    shadowProperties.radius = 24;
+    shadowProperties.offset = juce::Point<int> (-1, 12);
+    shadowProperties.colour = juce::Colours::black.withAlpha(0.25f);
+    dialShadow.setShadowProperties (shadowProperties);
         
         sliders.reserve(6);
         sliders = {
@@ -133,14 +134,14 @@ DiodeAmplifierAudioProcessorEditor::~DiodeAmplifierAudioProcessorEditor()
 void DiodeAmplifierAudioProcessorEditor::paint (juce::Graphics& g)
 {
     //Image layer from Illustrator
-    pluginBackground = juce::ImageCache::getFromMemory(BinaryData::pluginBackground_png, BinaryData::pluginBackground_pngSize);
+    pluginBackground = juce::ImageCache::getFromMemory(BinaryData::PluginBackground1_png, BinaryData::PluginBackground1_pngSize);
     g.drawImageWithin(pluginBackground, 0, 0, AudioProcessorEditor::getWidth(), AudioProcessorEditor::getHeight(), juce::RectanglePlacement::stretchToFit);
         
     // Background dark-maker
-    juce::Rectangle<float> backgroundDarker;
-    backgroundDarker.setBounds(0, 0, AudioProcessorEditor::getWidth(), AudioProcessorEditor::getHeight());
-    g.setColour(juce::Colour::fromFloatRGBA(0.09f, 0.10f, 0.12f, 0.65f));
-    g.fillRect(backgroundDarker);
+//    juce::Rectangle<float> backgroundDarker;
+//    backgroundDarker.setBounds(0, 0, AudioProcessorEditor::getWidth(), AudioProcessorEditor::getHeight());
+//    g.setColour(juce::Colour::fromFloatRGBA(0.09f, 0.10f, 0.12f, 0.65f));
+//    g.fillRect(backgroundDarker);
 
     // Header rectangle
     juce::Rectangle<float> header;
